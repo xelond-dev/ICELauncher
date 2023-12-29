@@ -1,0 +1,22 @@
+{
+  "HostName": "0.0.0.0",
+  "HostPort": "7070",
+
+  "ICELauncherAutoUpdates": true,
+  "ICELauncherPreReleases": false,
+
+  "ICELauncherNativesMirrors": [
+      "https://mirrors.xelond.dev/icelauncher/"
+  ],
+
+  "LauncherName": "ICELauncher",
+
+  "Launch4J": false,
+  "Launch4JConfig": {
+    "ProductName": "XLauncher",
+    "FileDescription": "XLauncher by Xelond",
+    "InternalName": "XLauncher",
+    "Copyright": "© Xelond",
+    "Trademarks": "This product is licensed under GNU v3.0"
+  }
+}
