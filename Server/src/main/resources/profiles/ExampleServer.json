@@ -1,0 +1,21 @@
+{
+  "ProfileName": "Example server #1",
+  "ClientFolder": "ExampleServer/",
+  "Version": "1.20.1",
+
+  "AutoJoinToServer": true,
+  "ServerProperties": {
+    "ServerIp": "0.0.0.0",
+    "ServerPort": "25565"
+  },
+
+  "ShareExclusion": [],
+
+  "MainClass": "net.minecraft.client.main.Main",
+  "ClientPath": [ "versions", "libraries" ],
+  "AdditionalJvmArgs": [
+    "fml.ignorePatchDiscrepancies",
+    "fml.ignoreInvalidMinecraftCertificates",
+    "org.lwjgl.opengl.Display.allowSoftwareOpenGL"
+  ]
+}
