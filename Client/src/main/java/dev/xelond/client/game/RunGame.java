@@ -10,19 +10,17 @@ import java.util.List;
 import java.util.Objects;
 
 public class RunGame {
-    public static final String nickname = "Xelond";
     public static final String minecraftClass = "net.minecraft.client.main.Main";
     public static final String gameVersion = "1.20.4";
     //public static final File clientDir = new File("/home/xelond/Documents/ICELauncher/tests/");
-    public static final File clientDir = new File(("C:\\Users\\nikit\\Desktop\\LegacyLauncher")); //versions/1.20.4
+    public static final File clientDir = new File("PATH\\TO\\GAME");
     // public static final File clientDir = new File(("C:\\Users\\nikit\\AppData\\Roaming\\.minecraft"));
     public static final File versionsDir = new File(clientDir.getAbsolutePath() + "/versions");
     public static final File nativesDir = new File(versionsDir.getAbsolutePath() + "/" + gameVersion + "/natives");
     public static final File librariesDir = new File(clientDir.getAbsolutePath() + "/libraries");
 
 
-    public static void main(String[] args) {
-
+    public static void launch(String username) {
 
         System.out.println("Client directory: " + clientDir.getAbsolutePath());
 
@@ -74,7 +72,7 @@ public class RunGame {
         }
 
         params.add("--username");
-        params.add(nickname);
+        params.add(username);
         params.add("--version");
         params.add(gameVersion);
         params.add("--gameDir");
