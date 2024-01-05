@@ -29,7 +29,7 @@ public class Main {
 
 
         // Unpacking resource
-        String[] filePaths = { "settings.json", "profiles/ExampleServer.json" };
+        String[] filePaths = { "settings.json", "profiles/ExampleServer.json", "profiles" };
 
         // Create ExecutorService with a fixed thread pool
         ExecutorService executorService = Executors.newFixedThreadPool(filePaths.length);
