@@ -2,20 +2,22 @@ package dev.xelond.server;
 
 import dev.xelond.server.Config.Config;
 import dev.xelond.server.Config.ConfigObject;
+import dev.xelond.server.HTTPServer.HTTPServer;
+import dev.xelond.server.shell.Shell;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-    private static final String ICELauncherVersion = "0.0.0-alpha+dev"; // MAJOR.MINOR.PATCH[-PRE_RELEASE][+METADATA]
+    public static final String ICELauncherVersion = "0.0.0-alpha+dev"; // MAJOR.MINOR.PATCH[-PRE_RELEASE][+METADATA]
     public static boolean debugMode = true; // DEVELOPER SWITCH IS HERE (debugMode)
-    public static Config config;
     public static void main(String[] args) {
 
         // Args handler
@@ -58,10 +60,10 @@ public class Main {
                             Debug.error("Failed unpacking \"" + filePath + "\", inputStream is null");
                         }
                     } catch (IOException e) {
-                        Debug.printStackTrace("Error unpacking \"" + filePath + "\": " + e.toString());
+                        Debug.printStackTrace("Error unpacking \"" + filePath + "\": " + e);
                     }
                 } catch (IOException e) {
-                    Debug.printStackTrace("Error creating directories for \"" + filePath + "\": " + e.toString());
+                    Debug.printStackTrace("Error creating directories for \"" + filePath + "\": " + e);
                 }
             });
         }
@@ -80,11 +82,13 @@ public class Main {
             Debug.error("Parallel file extraction was interrupted: " + e.getMessage());
         }
 
-
         // Read config
-        config = ConfigObject.getDetails();
-        System.out.println(config.HostName);
+        ConfigObject.getDetails();
 
+        // Check launcher updates
+        if (Config.ICELauncherAutoUpdates) {
+            Debug.log("Checking updates..");
+        }
 
         // If u run from IntellijI, use this
         for (String forceDeleteFile : filePaths) {
@@ -95,5 +99,8 @@ public class Main {
             }
         }
 
+        (new HTTPServer()).run(); // Initialization HTTP server in new thread
+
+        Shell.run(); // Run shell
     }
 }
