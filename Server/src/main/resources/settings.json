@@ -13,9 +13,9 @@
 
   "Launch4J": false,
   "Launch4JConfig": {
-    "ProductName": "XLauncher",
-    "FileDescription": "XLauncher by Xelond",
-    "InternalName": "XLauncher",
+    "ProductName": "ICELauncher",
+    "FileDescription": "ICELauncher by Xelond",
+    "InternalName": "ICELauncher",
     "Copyright": "© Xelond",
     "Trademarks": "This product is licensed under GNU v3.0"
   }
