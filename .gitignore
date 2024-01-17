@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+logs/
 
 # BlueJ files
 *.ctxt
@@ -104,3 +105,4 @@ fabric.properties
 
 # mvnw
 mvnw*
+/Client/Client.iml
